@@ -15,4 +15,6 @@
 //    return view('app');
 //});
 
-Route:get('/', 'DashboardController@index');
+Route::get('/', 'DashboardController@index');
+
+Route::resource('project', "ProjectController");

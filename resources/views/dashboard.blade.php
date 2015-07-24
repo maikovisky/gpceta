@@ -1,12 +1,32 @@
 @extends('app')
 
+@section('page_title')
+	{{ $page_title= 'Dashboard' }}
+@endsection
+
 @section('content')
+	<div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                  <h3>1</h3>
+                  <p>{{ trans('general.projects')}}</p>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-puzzle-piece"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+	</div>
+
     <div class='row'>
         <div class='col-md-6'>
             <!-- Box -->
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Randomly Generated Tasks</h3>
+                    <h3 class="box-title">{{trans('general.projects')}}</h3>
                     <div class="box-tools pull-right">
                         <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                         <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>

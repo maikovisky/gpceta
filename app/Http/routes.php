@@ -15,6 +15,8 @@
 //    return view('app');
 //});
 
-Route::get('/', 'DashboardController@index');
+Route::get('/',  ['as' => 'home', 'uses' => 'DashboardController@index']);
+Route::get('home', 'DashboardController@index');
+Route::get('dashboard', 'DashboardController@index');
 
 Route::resource('project', "ProjectController");

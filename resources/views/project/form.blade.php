@@ -4,6 +4,8 @@
 	{{ $page_title= trans('general.Project') }}
 @endsection
 
+@section('breadcrumbs', Breadcrumbs::render('project.edit'))
+
 @section('content')
 <div class="row">
 <div class="col-md-8">
@@ -11,7 +13,7 @@
     <div class="box-header with-border">
       <h3 class="box-title">{{trans('general.New_project')}}</h3>
       <div class="box-tools pull-right">
-        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        
       </div><!-- /.box-tools -->
     </div><!-- /.box-header -->
     <div class="box-body">

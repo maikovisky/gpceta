@@ -6,21 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Project;
+use App\User;
 
 class DashboardController extends Controller
 {
 	public function index() 
 	{	
-		$data['tasks'] = [
-        	[
-            	'id' => 1,
-            	'name' => 'VANT',
-                'progress' => '87',
-                'color' => 'danger',
-                'start_at' => '',
-                'finish_preview_at' => ''
-            ]
-		];
-		return view('dashboard')->with($data);
+		$projects = Project::all();
+                $users = User::all();
+		return view('dashboard',  compact(array('projects', 'users')));
 	}
 }

@@ -20,3 +20,8 @@ Route::get('home', 'DashboardController@index');
 Route::get('dashboard', 'DashboardController@index');
 
 Route::resource('project', "ProjectController");
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');

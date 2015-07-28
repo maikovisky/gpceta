@@ -12,13 +12,13 @@ use App\User;
 class DashboardController extends Controller
 {
     public function __construct() {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
     
     public function index() 
     {	
-            $projects = Project::all();
-            $users = User::all();
-            return view('dashboard',  compact(array('projects', 'users')));
+        $projects = Project::all();
+        $users = User::all();
+        return view('dashboard',  compact(array('projects', 'users')));
     }
 }

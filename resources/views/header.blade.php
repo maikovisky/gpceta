@@ -53,17 +53,15 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        <img src="{{ asset("images/guest.png") }}" class="user-image" alt="User Image"/>
+                        <img src="{{Auth::Check() ? Auth::user()->gravatar : asset("images/guest.png") }}" class="user-image" alt="User Image"/>
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                        <span class="hidden-xs">{{isset(Auth::user()->user) ? Auth::user()->user : 'Guest'}}</span>
+                        <span class="hidden-xs">{{Auth::Check() ? Auth::user()->name : 'Guest'}}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="{{ asset("images/guest.png") }}" class="img-circle" alt="User Image" />
-                            <p>
-                                {{isset(Auth::user()->user) ? Auth::user()->user : 'Guest'}}
-                            </p>
+                            <img src="{{Auth::Check() ? Auth::user()->gravatar : asset("images/guest.png") }}" class="img-circle" alt="User Image" />
+                            <p>{{Auth::Check() ? Auth::user()->name : 'Guest'}}</p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">

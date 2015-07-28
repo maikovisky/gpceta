@@ -37,5 +37,7 @@ return [
     
     'Reservation' => "Reservas",
     'Room'        => "Sala",
+    'Rooms'       => "Salas",
     'Car'         => "Carro",
+    'Cars'        => "Carros"
 ];

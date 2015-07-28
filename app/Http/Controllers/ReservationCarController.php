@@ -16,7 +16,7 @@ class ReservationCarController extends Controller
      */
     public function index()
     {
-        //
+        return view('reservation.car_index');
     }
 
     /**

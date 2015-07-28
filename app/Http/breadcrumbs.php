@@ -25,3 +25,25 @@ Breadcrumbs::register('project.edit', function($breadcrumbs, $project = null)
     }  
 });
 
+// Home > USer
+Breadcrumbs::register('user', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(Lang::get("general.Users"), route('user.index'));
+});
+
+
+// Home > Car
+Breadcrumbs::register('car', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(Lang::get("general.Cars"), route('car.index'));
+});
+
+
+// Home > Room
+Breadcrumbs::register('room', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(Lang::get("general.Rooms"), route('room.index'));
+});

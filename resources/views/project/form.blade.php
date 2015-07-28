@@ -16,7 +16,10 @@
         
       </div><!-- /.box-tools -->
     </div><!-- /.box-header -->
+    {!!Form::open(array('url'=>'project/store', 'POST'))!!}
+    {!! csrf_field() !!}
     <div class="box-body">
+        
         <div class="form-group col-lg-12">
             <label>{{trans("general.Name")}}</label>
             <input type="text" name='name' class="form-control" placeholder="">
@@ -50,6 +53,7 @@
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+    {!! Form::close() !!}
   </div><!-- /.box -->
 </div>
 </div>

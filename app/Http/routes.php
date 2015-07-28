@@ -20,8 +20,31 @@ Route::get('home', 'DashboardController@index');
 Route::get('dashboard', 'DashboardController@index');
 
 Route::resource('project', "ProjectController");
+Route::resource('user', "UserController");
+Route::resource('room', "ReservationRoomController");
+Route::resource('car', "ReservationCarController");
+
 
 // Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController'
+]);
+
+Menu::make('MyNavBar', function($menu){
+   $menu->add(trans('general.Projects'), array('route'=>'project.index')); 
+   $menu->add(trans('general.Users'),  array('route'=>'user.index'));
+   
+   $reservation = $menu->add(trans('general.Reservation'), 
+           array('class' => 'treeview'));
+   $reservation->add(trans('general.Room'), array('route'=>'room.index'));
+   $reservation->add(trans('general.Car'),  array('route'=>'car.index'));
+   //$reservation->attr('class', 'treeview-menu');
+   
+//   $menu->item(trans('general.Reservation'))->add(trans('general.Room'));
+//   $menu->item(trans('general.Reservation'))->add(trans('general.Car'));
+//    
+   //$menu->add(trans('general.About'));
+   //$menu->add(trans('general.Users'), array('route'=>'user.index')); 
+   
+});

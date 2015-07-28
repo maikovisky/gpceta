@@ -33,5 +33,9 @@ return [
     'Changes'   => 'Mudanças',
     'Issues'    => 'Questões',
     
-    'more_info' => 'More info',
+    'more_info' => 'Mais Informações',
+    
+    'Reservation' => "Reservas",
+    'Room'        => "Sala",
+    'Car'         => "Carro",
 ];

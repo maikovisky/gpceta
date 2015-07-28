@@ -33,6 +33,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .bg-green a {
             color: white
         }
+        
+        .treeview ul {
+              list-style: none;
+        }
+        menu>li>.treeview-menu {
+            margin: 0 1px;
+            background: #2c3b41;
+        }
     </style>
 </head>
 <body class="skin-green">

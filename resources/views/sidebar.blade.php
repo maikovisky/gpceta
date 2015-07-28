@@ -28,10 +28,8 @@
         <!-- /.search form -->
 
         <!-- Sidebar Menu -->
-        
-        <ul class="sidebar-menu">
-            @include('custom-menu-items', array('items' => $MyNavBar->roots()))
-        </ul>
+        {!! $MyNavBar->asUl(array('class'=>'sidebar-menu')) !!}
+
         
         <!--ul class="sidebar-menu">
             <li class="header">HEADER</li>

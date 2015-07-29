@@ -58,7 +58,7 @@
                                     <div class="progress-bar" style="width: {{$p->completed}}%"></div>
                                 </div>
                                 <span class="progress-description">
-                                    {{$p->completed}}% Increase in 30 Days
+                                    {{$p->completed}}% {{trans('general.Start_at')}} {{$p->start_at->formatLocalized('%d %B %Y')}}
                                 </span>
                             </div><!-- /.info-box-content -->
                         </div>

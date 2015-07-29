@@ -48,3 +48,4 @@ Menu::make('MyNavBar', function($menu){
    //$menu->add(trans('general.Users'), array('route'=>'user.index')); 
    
 });
+

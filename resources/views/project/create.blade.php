@@ -16,8 +16,8 @@
         
       </div><!-- /.box-tools -->
     </div><!-- /.box-header -->
-    {!!Form::open(array('url'=>'project/store', 'POST'))!!}
-    {!! csrf_field() !!}
+    
+    {!! Form::model(new App\Project, ['route' => ['project.store']]) !!}
     <div class="box-body">
         
         <div class="form-group col-lg-12">

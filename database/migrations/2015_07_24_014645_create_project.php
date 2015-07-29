@@ -21,6 +21,8 @@ class CreateProject extends Migration
             $table->date('start_at');
             $table->date('finish_preview_at');
             $table->date('finish_at');
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

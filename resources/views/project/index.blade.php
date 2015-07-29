@@ -34,8 +34,8 @@
                 <tr>
                     <td>{{$p->id}}</td>
                     <td>{{$p->name}}</td>
-                    <td>{{$p->start_at}}</td>
-                    <td>{{$p->finish_preview_at}}</td>
+                    <td>{{$p->start_at->format('d/m/Y')}}</td>
+                    <td>{{$p->finish_preview_at->format('d/m/Y')}}</td>
                 </tr>
             @endforeach
         </tbody>

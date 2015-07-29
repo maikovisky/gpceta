@@ -3,13 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Input;
+use Response;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Project;
+use App\Repositories\ProjectRepositoryEloquent;
+
+use \Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectController extends Controller
 {
+    
+    /**
+     * @var PostRepository
+     */
+    protected $repository;
+    protected $validation;
+
+    public function __construct(ProjectRepositoryEloquent $repository){
+        $this->repository = $repository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +32,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = $this->repository->all();
         return view('project.index', compact(array('projects')));
     }
 
@@ -28,7 +43,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.form');
+        return view('project.create');
     }
 
     /**
@@ -39,9 +54,24 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        
-    }
+ 
+        try {
+            $this->repository->validator();
+            $project = $this->repository->create(Input::all() );
 
+            return Response::json([
+                'message'=>'Post created',
+                'data'   =>$project->toArray()
+            ]);
+        }
+        catch(ValidatorException $e) 
+        {
+            return Response::json([
+                'error'   =>true,
+                'message' =>$e->getMessageBag()
+            ]);
+        }
+    }
     /**
      * Display the specified resource.
      *

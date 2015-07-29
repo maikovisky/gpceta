@@ -22,7 +22,7 @@ class ProjectController extends Controller
     protected $repository;
     protected $validation;
 
-    public function __construct(ProjectRepositoryEloquent $repository){
+    public function __construct(ProjectRepositoryEloquent $repository) {
         $this->repository = $repository;
     }
     /**
@@ -57,14 +57,14 @@ class ProjectController extends Controller
  
         try {
             $this->repository->validator();
-            $project = $this->repository->create(Input::all() );
+            $project = $this->repository->create(Input::all());
 
             return Response::json([
                 'message'=>'Post created',
                 'data'   =>$project->toArray()
             ]);
         }
-        catch(ValidatorException $e) 
+        catch (ValidatorException $e) 
         {
             return Response::json([
                 'error'   =>true,

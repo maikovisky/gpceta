@@ -33,7 +33,7 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
      */
     public function boot()
     {
-        $this->pushCriteria( app(RequestCriteria::class) );
+        $this->pushCriteria(app(RequestCriteria::class));
     }
     
     public function create(array $attributes) {
@@ -47,4 +47,4 @@ class ProjectRepositoryEloquent extends BaseRepository implements ProjectReposit
         return parent::update($attributes, $id);
     }
     
-  }
+    }

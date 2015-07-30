@@ -32,20 +32,20 @@ Route::controllers([
 ]);
 
 Menu::make('MyNavBar', function($menu){
-   $menu->add(trans('general.Projects'), array('route'=>'project.index')); 
-   $menu->add(trans('general.Users'),  array('route'=>'user.index'));
+    $menu->add(trans('general.Projects'), array('route'=>'project.index')); 
+    $menu->add(trans('general.Users'),  array('route'=>'user.index'));
    
-   $reservation = $menu->add(trans('general.Reservation'), 
-           array('class' => 'treeview'));
-   $reservation->add(trans('general.Room'), array('route'=>'room.index'));
-   $reservation->add(trans('general.Car'),  array('route'=>'car.index'));
-   //$reservation->attr('class', 'treeview-menu');
+    $reservation = $menu->add(trans('general.Reservation'), 
+            array('class' => 'treeview'));
+    $reservation->add(trans('general.Room'), array('route'=>'room.index'));
+    $reservation->add(trans('general.Car'),  array('route'=>'car.index'));
+    //$reservation->attr('class', 'treeview-menu');
    
 //   $menu->item(trans('general.Reservation'))->add(trans('general.Room'));
 //   $menu->item(trans('general.Reservation'))->add(trans('general.Car'));
 //    
-   //$menu->add(trans('general.About'));
-   //$menu->add(trans('general.Users'), array('route'=>'user.index')); 
+    //$menu->add(trans('general.About'));
+    //$menu->add(trans('general.Users'), array('route'=>'user.index')); 
    
 });
 

@@ -32,6 +32,16 @@ Breadcrumbs::register('user', function($breadcrumbs)
     $breadcrumbs->push(Lang::get("general.Users"), route('user.index'));
 });
 
+Breadcrumbs::register('user.edit', function($breadcrumbs, $project = null)
+{
+    $breadcrumbs->parent('user');
+    if(isset($project)) {
+        $breadcrumbs->push($project->name, route('user.edit', $project->id));
+    }
+    else {
+        $breadcrumbs->push(Lang::get("general.New"), route('user.edit'));
+    }  
+});
 
 // Home > Car
 Breadcrumbs::register('car', function($breadcrumbs)

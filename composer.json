@@ -12,7 +12,8 @@
         "lavary/laravel-menu": "dev-master",
         "prettus/l5-repository": "^2.1",
         "prettus/laravel-validation": "^1.1",
-		"caouecs/laravel4-lang": "~2.0"
+		"caouecs/laravel4-lang": "~2.0",
+        "laracasts/flash": "^1.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

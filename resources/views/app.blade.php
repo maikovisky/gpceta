@@ -41,6 +41,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             margin: 0 1px;
             background: #2c3b41;
         }
+        
+        td>.user-image {
+            float: left;
+            width: 25px;
+            height: 25px;
+            border-radius: 25%;
+            margin-right: 10px;
+            margin-top: -2px;
+        }
     </style>
 </head>
 <body class="skin-green">
@@ -67,6 +76,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
+            @if (Session::has('flash_notification.message'))
+                <div class="alert alert-{{ Session::get('flash_notification.level') }}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ Session::get('flash_notification.message') }}
+                </div>
+            @endif
             @yield('content')
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->

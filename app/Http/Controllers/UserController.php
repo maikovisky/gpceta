@@ -2,13 +2,30 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Redirect;
+use Input;
+use Session;
+use Flash;
+
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepositoryEloquent;
+use \Prettus\Validator\Exceptions\ValidatorException;
 
 class UserController extends Controller
 {
+    /**
+     * @var PostRepository
+     */
+    protected $repository;
+
+    public function __construct(UserRepositoryEloquent $repository){
+        $this->repository = $repository;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +33,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view("user.index");
+        $users = $this->repository->all();
+        return view("user.index", compact('users'));
     }
 
     /**
@@ -26,7 +44,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view("user.create");
     }
 
     /**
@@ -37,7 +55,30 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+     
+            $this->repository->validator();
+  
+            $user = $this->repository->create(Input::all() );
+
+            if($request->isJson()) {
+                return Response::json([
+                    'message'=>'User created',
+                    'data'   =>$user->toArray()
+                ]);
+            } 
+            Redirect::to("user.index");
+        } 
+        catch (ValidatorException $e) {
+            if($request->isJson()) {
+                return Response::json([
+                    'error'   =>true,
+                    'message' =>$e->getMessageBag()
+                ]);
+            }
+            Flash::error($e->getMessageBag());
+            return back()->withInput();
+        }
     }
 
     /**

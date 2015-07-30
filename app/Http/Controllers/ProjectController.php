@@ -20,11 +20,11 @@ class ProjectController extends Controller
      * @var PostRepository
      */
     protected $repository;
-    protected $validation;
 
     public function __construct(ProjectRepositoryEloquent $repository){
         $this->repository = $repository;
     }
+    
     /**
      * Display a listing of the resource.
      *

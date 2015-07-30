@@ -28,6 +28,9 @@ return [
     'User'     => 'Usuário',
     'user'     => 'usuário',
     'Team'     => 'Equipe',
+    'Email'    => "E-mail",
+    'Password' => "Senha",
+    'ConfirmPassword' => "Confirme a senha",
 
     'Resources' => 'Recursos',
     'Changes'   => 'Mudanças',

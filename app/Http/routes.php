@@ -21,6 +21,7 @@ Route::get('dashboard', 'DashboardController@index');
 
 Route::resource('project', "ProjectController");
 Route::resource('user', "UserController");
+Route::resource('companytype', "CompanyTypeController");
 Route::resource('room', "ReservationRoomController");
 Route::resource('car', "ReservationCarController");
 
@@ -34,6 +35,7 @@ Route::controllers([
 Menu::make('MyNavBar', function($menu){
     $menu->add(trans('general.Projects'), array('route'=>'project.index')); 
     $menu->add(trans('general.Users'),  array('route'=>'user.index'));
+    $menu->add(trans('general.CompanyType'),  array('route'=>'companytype.index'));
    
     $reservation = $menu->add(trans('general.Reservation'), 
             array('class' => 'treeview'));

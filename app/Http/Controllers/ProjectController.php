@@ -117,4 +117,14 @@ class ProjectController extends Controller
     {
         //
     }
+    
+    public function getUser($id, $user_id) 
+    {
+        dd($user_id);
+    }
+    
+    public function users($id)
+    {
+        dd($id);
+    }
 }

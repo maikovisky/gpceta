@@ -20,6 +20,8 @@ Route::get('home', 'DashboardController@index');
 Route::get('dashboard', 'DashboardController@index');
 
 Route::resource('project', "ProjectController");
+Route::get('project/{project}/users', "ProjectController@users");
+Route::controller('project', "ProjectController");
 Route::resource('user', "UserController");
 Route::resource('companytype', "CompanyTypeController");
 Route::resource('room', "ReservationRoomController");

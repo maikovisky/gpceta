@@ -14,6 +14,18 @@ Breadcrumbs::register('project', function($breadcrumbs)
     $breadcrumbs->push(Lang::get("general.Projects"), route('project.index'));
 });
 
+Breadcrumbs::register('project.resources', function($breadcrumbs, $project = null)
+{
+    $breadcrumbs->parent('project.show', $project);
+    $breadcrumbs->push(Lang::get("general.Resources"), route('project.resources', $project->id));
+});
+
+Breadcrumbs::register('project.show', function($breadcrumbs, $project = null)
+{
+    $breadcrumbs->parent('project');
+    $breadcrumbs->push($project->name, route('project.show', $project->id));   
+});
+
 Breadcrumbs::register('project.edit', function($breadcrumbs, $project = null)
 {
     $breadcrumbs->parent('project');
@@ -56,4 +68,12 @@ Breadcrumbs::register('room', function($breadcrumbs)
 {
     $breadcrumbs->parent('home');
     $breadcrumbs->push(Lang::get("general.Rooms"), route('room.index'));
+});
+
+
+// Home > Room
+Breadcrumbs::register('companytype', function($breadcrumbs)
+{
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(Lang::get("general.CompanyType"), route('companytype.index'));
 });

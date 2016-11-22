@@ -4,19 +4,21 @@ namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Entities\User;
+use App\Repositories\UnitRepository;
+use App\Entities\CompanyType;
 
 /**
- * Class UserRepositoryEloquent
+ * Class UnitRepositoryEloquent
  * @package namespace App\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository
+class CompanyTypeRepositoryEloquent extends BaseRepository implements CompanyTypeRepository
 {
-    protected $rules = [
-        'name' => 'min:3|required',
-        'email' => 'email|required|unique:users'
-    ];
     
+    /*
+     * Specify validator rules
+     * @var array
+     */
+    protected $rules = [ ];
     /**
      * Specify Model class name
      *
@@ -24,7 +26,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function model()
     {
-        return User::class;
+        return CompanyType::class;
     }
 
     /**
@@ -32,6 +34,6 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
      */
     public function boot()
     {
-        $this->pushCriteria( app(RequestCriteria::class) );
+        $this->pushCriteria(app(RequestCriteria::class));
     }
 }

@@ -127,4 +127,10 @@ class ProjectController extends Controller
     {
         dd($id);
     }
+    
+    public function resources($id)
+    {
+        $project = Project::find($id);
+        return view('project.resources', compact('project'));
+    }
 }

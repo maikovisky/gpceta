@@ -36,7 +36,7 @@
           <div class="icon">
             <i class="fa fa-dollar"></i>
           </div>
-          <a href="{{asset('project')}}" class="small-box-footer">{{trans('general.more_info')}} <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="{{asset('project/1/resources')}}" class="small-box-footer">{{trans('general.more_info')}} <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div><!-- ./col -->
     <div class="col-lg-2 col-xs-6">

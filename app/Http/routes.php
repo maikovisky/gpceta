@@ -21,6 +21,10 @@ Route::get('dashboard', 'DashboardController@index');
 
 Route::resource('project', "ProjectController");
 Route::get('project/{project}/users', "ProjectController@users");
+Route::get('project/{project}/resources', [
+        'uses' => "ProjectController@resources",
+        'as' => 'project.resources'
+    ]);
 Route::controller('project', "ProjectController");
 Route::resource('user', "UserController");
 Route::resource('companytype', "CompanyTypeController");
